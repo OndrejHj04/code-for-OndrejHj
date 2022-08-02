@@ -1,8 +1,8 @@
 import { doc, setDoc } from "firebase/firestore";
 import { nanoid } from "nanoid";
 import { db } from "./database";
+import { Form } from "./Form";
 import { actions, state } from "./types";
-
 export const Leaderboard = ({ state, dispatch }: { state: state; dispatch: (value: actions) => void }) => {
   const submit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -30,10 +30,7 @@ export const Leaderboard = ({ state, dispatch }: { state: state; dispatch: (valu
           </div>
         </div>
 
-        <form onSubmit={submit} style={{ fontSize: 40 }} className="flex w-fit mx-auto">
-          <input value={state.input} type="text" className="outline-none border-4 border-black rounded-l-full px-2" onChange={(e) => dispatch({ type: "input", text: e.target.value })} />
-          <button className="bg-green-500 rounded-r-full px-2">submit!</button>
-        </form>
+        <Form submit={submit} state={state} dispatch={dispatch}/>
       </div>
       <button className="mx-auto my-4 px-2 bg-red-500" onClick={() => dispatch({ type: "reset" })}>
         try again
