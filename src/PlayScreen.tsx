@@ -6,8 +6,8 @@ export const PlayScreen = ({state, dispatch}:
     <>
       <div className="w-full h-full flex">
         {state.toggle && (
-          <div id="square" onClick={() => dispatch({ type: "toggle", value: false })}>
-            click me!</div>
+          <div id="square" onClick={() => 
+          dispatch({ type: "toggle", value: false })}>click me!</div>
         )}
       </div>
       <h1 className="text-5xl my-5 text-center" 
